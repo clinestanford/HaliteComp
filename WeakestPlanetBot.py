@@ -33,10 +33,16 @@ while True:
 
 		if len(planets) > 0:
 			target_planet = planets[0]
-
-			if ship.can_dock(target_planet):
+			if target_planet.is_owned():
+				logging.info(len(planets))
+				logging.info("targetPlanet health")
+				logging.info(target_planet.health)
+				logging.info("Last planet health")
+				lastPlanet = planets[len(planets)-1]
+				logging.info(lastPlanet.health)
+			if not target_planet.is_owned() and ship.can_dock(target_planet):
 				command_queue.append(ship.dock(target_planet))
-			else:
+			elif not target_planet.is_owned():
 				navigate_command = ship.navigate(
 					ship.closest_point_to(target_planet),
 					game_map,
@@ -44,6 +50,20 @@ while True:
 					ignore_ships=True)
 				if navigate_command:
 					command_queue.append(navigate_command)
+			else:
+				entitiesNearPlanet = game_map.nearby_entities_by_distance(target_planet)
+				entitiesNearPlanet = OrderedDict(sorted(entities_by_distance.items(), key=lambda t: t[0]))
+				enemyShipsNearPlanet = [entitiesNearPlanet[distance][0] for distance in entitiesNearPlanet if isinstance(entitiesNearPlanet[distance][0], hlt.entity.Ship) and entitiesNearPlanet[distance][0] not in team_ships]
+
+				target_ship = enemyShipsNearPlanet[0]
+				navigate_command = ship.navigate(
+								ship.closest_point_to(target_ship),
+								game_map,
+								speed=int(hlt.constants.MAX_SPEED),
+								ignore_ships=False)
+				if navigate_command:
+					command_queue.append(navigate_command)
+
 		elif len(closest_enemy_ships) > 0:
 			logging.info(closest_enemy_ships[0])
 			target_ship = closest_enemy_ships[0]
