@@ -3,7 +3,7 @@ import logging
 
 from collections import OrderedDict
 
-game = hlt.Game("ShortBot Snitches")
+game = hlt.Game("ShortBot")
 logging.info("Starting ShortBot")
 
 while True:
