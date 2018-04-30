@@ -3,8 +3,8 @@ import logging
 
 from collections import OrderedDict
 
-game = hlt.Game("CentralBot-Ember")
-logging.info("Starting CentralBot-Ember!")
+game = hlt.Game("LeftToRight")
+logging.info("Starting LeftToRight!")
 
 #1 = go dock
 #2 = attack ship
