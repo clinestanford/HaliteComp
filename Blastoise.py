@@ -9,18 +9,23 @@ import hlt
 import logging
 
 from collections import OrderedDict
+import time
 
 # GAME START
-game = hlt.Game("Settler")
+game = hlt.Game("Blastoise")
 # Then we print our start message to the logs
-logging.info("Starting With Spikes Turtle Bot")
+logging.info("Starting Blastoise")
 
 shipsBeingAttacked = []
 def shipActions(team_ships,game_map,turn):
     # Here we define the set of commands to be sent to the Halite engine at the end of the turn
     command_queue = []
+    startTime = int(round(time.time() * 1000))
 
     for ship in team_ships:
+        currentTime = int(round(time.time() * 1000))
+        if(currentTime - startTime > 1990):
+            break;
         # skip the docked planets
         if ship.docking_status != ship.DockingStatus.UNDOCKED:
             continue

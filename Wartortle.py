@@ -9,12 +9,12 @@ import hlt
 import logging
 
 from collections import OrderedDict
+import time
 
 # GAME START
-game = hlt.Game("Settler")
+game = hlt.Game("Wartortle")
 # Then we print our start message to the logs
-logging.info("Starting With Spikes Turtle Bot")
-
+logging.info("Starting Wartortle")
 VISION_DEPTH = 5 # how far can a ship see?
 
 shipsBeingAttacked = []
@@ -22,8 +22,12 @@ shipsBeingAttacked = []
 def shipActions(team_ships,game_map):
     # Here we define the set of commands to be sent to the Halite engine at the end of the turn
     command_queue = []
+    startTime = int(round(time.time() * 1000))
 
     for ship in team_ships:
+        currentTime = int(round(time.time() * 1000))
+        if(currentTime - startTime > 1980):
+            break
         # skip docked ships
         if ship.docking_status != ship.DockingStatus.UNDOCKED:
             continue
