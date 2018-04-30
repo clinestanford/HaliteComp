@@ -1,9 +1,9 @@
 #!/bin/bash
 
-firstBot="ShortBot.py"
-secondBot="LongBot.py"
-thirdBot="Squirtle.py"
-fourthBot="Wartortle.py"
+firstBot="Blastoise.py"
+secondBot="Wartortle.py"
+thirdBot="StrongestPlanetBot.py"
+fourthBot="ShortBot.py"
 
 rm regexText.txt
 touch regexText.txt
