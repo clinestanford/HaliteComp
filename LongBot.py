@@ -101,5 +101,3 @@ while True:
 				command_queue.append(navigate_command)
 				continue
 	game.send_command_queue(command_queue)
-
-
