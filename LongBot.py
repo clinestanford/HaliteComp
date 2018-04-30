@@ -3,10 +3,10 @@ import logging
 
 from collections import OrderedDict
 
-game = hlt.Game("LongBot Snitches")
+game = hlt.Game("LongBot")
 logging.info("Starting LongBot")
 start_direction = []
-no_go_planets = []
+#no_go_planets = []
 turns = 0
 start_turns_strategy = 12
 
