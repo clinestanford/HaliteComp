@@ -11,7 +11,7 @@ import logging
 from collections import OrderedDict
 
 # GAME START
-game = hlt.Game("Settler")
+game = hlt.Game("Squirtle")
 # Then we print our start message to the logs
 logging.info("Starting Turtle Bot")
 
