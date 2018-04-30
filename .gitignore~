@@ -1,0 +1,13 @@
+.gitignore
+MyBot.py
+htl/
+run_game.bat
+run_game.sh
+*.log
+Blastoise_old.py
+__init__.py
+output.txt
+*.hlt
+*.swp
+
+
